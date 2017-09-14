@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<course_desc:Univ
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:course_desc="platform:/plugin/basic_ecore_modeling/course_description.ecore"
+    xsi:schemaLocation="platform:/plugin/basic_ecore_modeling/course_description.ecore course_description.ecore">
+  <hasDepartment
+      name="IDI">
+    <responsible
+        instanceOfCourse="//@hasCourses.6"
+        Year="2017"
+        LectureHours="3.0"
+        LabHours="8.0">
+      <hasTimetable
+          programs="//@hasDepartment.1/@manages.0">
+        <hasCourseWork
+            Duration="2"
+            Room="A2"
+            isRestricted="true"/>
+        <hasCourseWork
+            Duration="2"
+            Room="A1"
+            isRestricted="true"
+            Type="LECTURE"/>
+      </hasTimetable>
+      <hasEvaluations
+          xsi:type="course_desc:Exam"
+          Percentage="100.0"
+          date="2017-12-12T00:00:00.000+0100"
+          place="somewhere"
+          duration="4.0"/>
+      <hasEvaluations
+          xsi:type="course_desc:Exam"
+          Percentage="100.0"
+          date="2017-12-12T00:00:00.000+0100"
+          place="Spektrum"
+          duration="4.0"/>
+      <hasPersonRole
+          xsi:type="course_desc:CourseCoordinator"
+          linkedTo="//@hasPersons.1"/>
+      <hasPersonRole
+          xsi:type="course_desc:Lecturer"
+          linkedTo="//@hasPersons.3"/>
+      <hasPersonRole
+          xsi:type="course_desc:Lecturer"
+          linkedTo="//@hasPersons.2"/>
+    </responsible>
+    <responsible
+        instanceOfCourse="//@hasCourses.1"
+        Year="2017"
+        LectureHours="3.0"
+        LabHours="2.0">
+      <hasTimetable
+          programs="//@hasDepartment.0/@manages.0 //@hasDepartment.0/@manages.1">
+        <hasCourseWork
+            Duration="2"
+            Room="VE22"/>
+        <hasCourseWork
+            Duration="2"
+            Room="VE22"/>
+        <hasCourseWork
+            Duration="2"
+            Room="S4"
+            Type="LECTURE"/>
+        <hasCourseWork
+            Duration="1"
+            Room="EL1"
+            Type="LECTURE"/>
+      </hasTimetable>
+      <hasEvaluations
+          xsi:type="course_desc:Exam"
+          Percentage="70.0"
+          place="Spektrum"
+          duration="4.0"/>
+      <hasEvaluations
+          xsi:type="course_desc:EvaluationWithDeadline"
+          Percentage="30.0"/>
+      <hasPersonRole
+          xsi:type="course_desc:CourseCoordinator"
+          linkedTo="//@hasPersons.0"/>
+      <hasPersonRole
+          xsi:type="course_desc:Lecturer"
+          linkedTo="//@hasPersons.0"/>
+    </responsible>
+    <manages
+        offers="//@hasCourses.0 //@hasCourses.1"/>
+    <manages
+        studyCode="MIT"
+        offers="//@hasCourses.1"/>
+  </hasDepartment>
+  <hasDepartment
+      name="Institutt for industriell økonomi og teknologiledelse">
+    <manages
+        studyCode="MTIØT"/>
+  </hasDepartment>
+  <hasCourses
+      Code="TDT 4100"
+      name="Objektorientert programmering"
+      Content="&quot;Good course&quot;"
+      Credits="7.5"/>
+  <hasCourses
+      Code="TDT 4250"
+      name="Avansert programvaredesign"
+      Content="&quot;Good course&quot;"
+      Credits="7.5"
+      hasInstance="//@hasDepartment.0/@responsible.1"
+      hasPrecondition="//@hasPrecond.0 //@hasPrecond.1 //@hasPrecond.2 //@hasPrecond.3 //@hasPrecond.4"/>
+  <hasCourses
+      Code="SIF8060"
+      name="Modellering av IS"
+      Content="&quot;Something&quot;"
+      Credits="7.5"/>
+  <hasCourses
+      Code="TDT4140"
+      name="Programvareutvikling"/>
+  <hasCourses
+      Code="TDT4175"
+      name="Informasjonssystemer"/>
+  <hasCourses
+      Code="TDT4240"
+      name="Programvarearkitektur"/>
+  <hasCourses
+      Code="TDT4105"
+      name="Informasjonsteknologi, grunnkurs"
+      Credits="7.5"
+      hasInstance="//@hasDepartment.0/@responsible.0"
+      hasPrecondition="//@hasPrecond.5"/>
+  <hasCourses
+      Code="TDT4115"
+      name="Informasjonsteknologi, grunnkurs"
+      Content=""
+      Credits="7.5"/>
+  <hasPersons
+      name="Hallvard Trætteberg"
+      hasRole="//@hasDepartment.0/@responsible.1/@hasPersonRole.1 //@hasDepartment.0/@responsible.1/@hasPersonRole.0"/>
+  <hasPersons
+      name="Alf"
+      hasRole="//@hasDepartment.0/@responsible.0/@hasPersonRole.0"/>
+  <hasPersons
+      name="Terje Rydland"
+      hasRole="//@hasDepartment.0/@responsible.0/@hasPersonRole.2"/>
+  <hasPersons
+      personNr="12345678"
+      name="Rune Sætre"
+      hasRole="//@hasDepartment.0/@responsible.0/@hasPersonRole.1"/>
+  <hasPrecond
+      isRecommended="true"
+      belongsTo="//@hasCourses.5"/>
+  <hasPrecond
+      isRecommended="true"
+      belongsTo="//@hasCourses.4"/>
+  <hasPrecond
+      isRecommended="true"
+      belongsTo="//@hasCourses.0"/>
+  <hasPrecond
+      isRecommended="true"
+      belongsTo="//@hasCourses.3"/>
+  <hasPrecond
+      reductionPoints="7.5"
+      belongsTo="//@hasCourses.2"/>
+  <hasPrecond
+      reductionPoints="7.5"
+      belongsTo="//@hasCourses.7"/>
+</course_desc:Univ>

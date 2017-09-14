@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/basic_ecore_modeling/src" modelPluginID="basic_ecore_modeling"
+    modelName="Course_description" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>course_description.ecore</foreignModel>
+  <genPackages prefix="Course_desc" disposableProviderFactory="true" ecorePackage="course_description.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="course_description.ecore#//CourseWorkType">
+      <genEnumLiterals ecoreEnumLiteral="course_description.ecore#//CourseWorkType/LABHOUR"/>
+      <genEnumLiterals ecoreEnumLiteral="course_description.ecore#//CourseWorkType/LECTURE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="course_description.ecore#//StudyProgramCode">
+      <genEnumLiterals ecoreEnumLiteral="course_description.ecore#//StudyProgramCode/MTDT"/>
+      <genEnumLiterals ecoreEnumLiteral="course_description.ecore#//StudyProgramCode/BIT"/>
+      <genEnumLiterals ecoreEnumLiteral="course_description.ecore#//StudyProgramCode/MIT"/>
+      <genEnumLiterals ecoreEnumLiteral="course_description.ecore#//StudyProgramCode/MTIØT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="course_description.ecore#//Role">
+      <genEnumLiterals ecoreEnumLiteral="course_description.ecore#//Role/LECTURER"/>
+      <genEnumLiterals ecoreEnumLiteral="course_description.ecore#//Role/STUDENT"/>
+      <genEnumLiterals ecoreEnumLiteral="course_description.ecore#//Role/COURSE_COORDINATOR"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="course_description.ecore#//DeadlineEvaluation">
+      <genEnumLiterals ecoreEnumLiteral="course_description.ecore#//DeadlineEvaluation/ASSIGNMENT"/>
+      <genEnumLiterals ecoreEnumLiteral="course_description.ecore#//DeadlineEvaluation/PROJECT"/>
+    </genEnums>
+    <genClasses ecoreClass="course_description.ecore#//Course">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//Course/Code"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//Course/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//Course/Content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//Course/Credits"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference course_description.ecore#//Course/hasInstance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference course_description.ecore#//Course/hasPrecondition"/>
+    </genClasses>
+    <genClasses ecoreClass="course_description.ecore#//CourseInstance">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference course_description.ecore#//CourseInstance/hasTimetable"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference course_description.ecore#//CourseInstance/instanceOfCourse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference course_description.ecore#//CourseInstance/hasEvaluations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//CourseInstance/Year"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//CourseInstance/LectureHours"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//CourseInstance/LabHours"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference course_description.ecore#//CourseInstance/isInstanceOf"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference course_description.ecore#//CourseInstance/hasPersonRole"/>
+    </genClasses>
+    <genClasses ecoreClass="course_description.ecore#//Department">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference course_description.ecore#//Department/responsible"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//Department/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference course_description.ecore#//Department/manages"/>
+    </genClasses>
+    <genClasses ecoreClass="course_description.ecore#//Exam">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//Exam/date"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//Exam/place"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//Exam/duration"/>
+    </genClasses>
+    <genClasses ecoreClass="course_description.ecore#//Timetable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference course_description.ecore#//Timetable/hasCourseWork"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference course_description.ecore#//Timetable/programs"/>
+    </genClasses>
+    <genClasses ecoreClass="course_description.ecore#//Person">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//Person/personNr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//Person/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference course_description.ecore#//Person/hasRole"/>
+    </genClasses>
+    <genClasses ecoreClass="course_description.ecore#//CoursePreconditions">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//CoursePreconditions/isRequired"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//CoursePreconditions/reductionPoints"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//CoursePreconditions/isRecommended"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference course_description.ecore#//CoursePreconditions/belongsTo"/>
+    </genClasses>
+    <genClasses ecoreClass="course_description.ecore#//CourseWork">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//CourseWork/Duration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//CourseWork/Room"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//CourseWork/isMandatory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//CourseWork/isRestricted"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//CourseWork/Type"/>
+    </genClasses>
+    <genClasses ecoreClass="course_description.ecore#//StudyProgram">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//StudyProgram/studyCode"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference course_description.ecore#//StudyProgram/offers"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference course_description.ecore#//StudyProgram/belongs"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="course_description.ecore#//Evaluation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//Evaluation/Percentage"/>
+    </genClasses>
+    <genClasses ecoreClass="course_description.ecore#//PersonRole">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference course_description.ecore#//PersonRole/linkedTo"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference course_description.ecore#//PersonRole/belongsTo"/>
+    </genClasses>
+    <genClasses ecoreClass="course_description.ecore#//Univ">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference course_description.ecore#//Univ/hasDepartment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference course_description.ecore#//Univ/hasCourses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference course_description.ecore#//Univ/hasPersons"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference course_description.ecore#//Univ/hasPrecond"/>
+    </genClasses>
+    <genClasses ecoreClass="course_description.ecore#//EvaluationWithDeadline">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute course_description.ecore#//EvaluationWithDeadline/deadlineEvaluation"/>
+    </genClasses>
+    <genClasses ecoreClass="course_description.ecore#//Student">
+      <genOperations ecoreOperation="course_description.ecore#//Student/signUpForExam">
+        <genParameters ecoreParameter="course_description.ecore#//Student/signUpForExam/exam"/>
+      </genOperations>
+      <genOperations ecoreOperation="course_description.ecore#//Student/cancelExam"/>
+      <genOperations ecoreOperation="course_description.ecore#//Student/takeExam"/>
+    </genClasses>
+    <genClasses ecoreClass="course_description.ecore#//Lecturer"/>
+    <genClasses ecoreClass="course_description.ecore#//CourseCoordinator"/>
+  </genPackages>
+</genmodel:GenModel>
