@@ -142,7 +142,7 @@
       hasRole="//@hasDepartment.0/@responsible.0/@hasPersonRole.2"/>
   <hasPersons
       personNr="12345678"
-      name="Rune Sætre"
+      name="Rune Sætre3"
       hasRole="//@hasDepartment.0/@responsible.0/@hasPersonRole.1"/>
   <hasPrecond
       isRecommended="true"
