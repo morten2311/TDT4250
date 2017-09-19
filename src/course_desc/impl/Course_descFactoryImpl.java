@@ -62,15 +62,15 @@ public class Course_descFactoryImpl extends EFactoryImpl implements Course_descF
 			case Course_descPackage.DEPARTMENT: return createDepartment();
 			case Course_descPackage.EXAM: return createExam();
 			case Course_descPackage.TIMETABLE: return createTimetable();
-			case Course_descPackage.PERSON: return createPerson();
 			case Course_descPackage.COURSE_PRECONDITIONS: return createCoursePreconditions();
 			case Course_descPackage.COURSE_WORK: return createCourseWork();
 			case Course_descPackage.STUDY_PROGRAM: return createStudyProgram();
-			case Course_descPackage.UNIV: return createUniv();
-			case Course_descPackage.EVALUATION_WITH_DEADLINE: return createEvaluationWithDeadline();
+			case Course_descPackage.PERSON: return createPerson();
 			case Course_descPackage.STUDENT: return createStudent();
 			case Course_descPackage.LECTURER: return createLecturer();
 			case Course_descPackage.COURSE_COORDINATOR: return createCourseCoordinator();
+			case Course_descPackage.UNIV: return createUniv();
+			case Course_descPackage.EVALUATION_WITH_DEADLINE: return createEvaluationWithDeadline();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -88,8 +88,6 @@ public class Course_descFactoryImpl extends EFactoryImpl implements Course_descF
 				return createCourseWorkTypeFromString(eDataType, initialValue);
 			case Course_descPackage.STUDY_PROGRAM_CODE:
 				return createStudyProgramCodeFromString(eDataType, initialValue);
-			case Course_descPackage.ROLE:
-				return createRoleFromString(eDataType, initialValue);
 			case Course_descPackage.DEADLINE_EVALUATION:
 				return createDeadlineEvaluationFromString(eDataType, initialValue);
 			default:
@@ -109,8 +107,6 @@ public class Course_descFactoryImpl extends EFactoryImpl implements Course_descF
 				return convertCourseWorkTypeToString(eDataType, instanceValue);
 			case Course_descPackage.STUDY_PROGRAM_CODE:
 				return convertStudyProgramCodeToString(eDataType, instanceValue);
-			case Course_descPackage.ROLE:
-				return convertRoleToString(eDataType, instanceValue);
 			case Course_descPackage.DEADLINE_EVALUATION:
 				return convertDeadlineEvaluationToString(eDataType, instanceValue);
 			default:
@@ -295,26 +291,6 @@ public class Course_descFactoryImpl extends EFactoryImpl implements Course_descF
 	 * @generated
 	 */
 	public String convertStudyProgramCodeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Role createRoleFromString(EDataType eDataType, String initialValue) {
-		Role result = Role.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertRoleToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

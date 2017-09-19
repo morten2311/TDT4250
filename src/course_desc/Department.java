@@ -54,7 +54,7 @@ public interface Department extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see course_desc.Course_descPackage#getDepartment_Name()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();

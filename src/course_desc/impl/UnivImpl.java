@@ -7,6 +7,7 @@ import course_desc.CoursePreconditions;
 import course_desc.Course_descPackage;
 import course_desc.Department;
 import course_desc.Person;
+import course_desc.Student;
 import course_desc.Univ;
 
 import java.util.Collection;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link course_desc.impl.UnivImpl#getHasCourses <em>Has Courses</em>}</li>
  *   <li>{@link course_desc.impl.UnivImpl#getHasPersons <em>Has Persons</em>}</li>
  *   <li>{@link course_desc.impl.UnivImpl#getHasPrecond <em>Has Precond</em>}</li>
+ *   <li>{@link course_desc.impl.UnivImpl#getHasStudents <em>Has Students</em>}</li>
  * </ul>
  *
  * @generated
@@ -79,6 +81,16 @@ public class UnivImpl extends MinimalEObjectImpl.Container implements Univ {
 	 * @ordered
 	 */
 	protected EList<CoursePreconditions> hasPrecond;
+
+	/**
+	 * The cached value of the '{@link #getHasStudents() <em>Has Students</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHasStudents()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Student> hasStudents;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -152,6 +164,18 @@ public class UnivImpl extends MinimalEObjectImpl.Container implements Univ {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Student> getHasStudents() {
+		if (hasStudents == null) {
+			hasStudents = new EObjectContainmentEList<Student>(Student.class, this, Course_descPackage.UNIV__HAS_STUDENTS);
+		}
+		return hasStudents;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -163,6 +187,8 @@ public class UnivImpl extends MinimalEObjectImpl.Container implements Univ {
 				return ((InternalEList<?>)getHasPersons()).basicRemove(otherEnd, msgs);
 			case Course_descPackage.UNIV__HAS_PRECOND:
 				return ((InternalEList<?>)getHasPrecond()).basicRemove(otherEnd, msgs);
+			case Course_descPackage.UNIV__HAS_STUDENTS:
+				return ((InternalEList<?>)getHasStudents()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -183,6 +209,8 @@ public class UnivImpl extends MinimalEObjectImpl.Container implements Univ {
 				return getHasPersons();
 			case Course_descPackage.UNIV__HAS_PRECOND:
 				return getHasPrecond();
+			case Course_descPackage.UNIV__HAS_STUDENTS:
+				return getHasStudents();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -212,6 +240,10 @@ public class UnivImpl extends MinimalEObjectImpl.Container implements Univ {
 				getHasPrecond().clear();
 				getHasPrecond().addAll((Collection<? extends CoursePreconditions>)newValue);
 				return;
+			case Course_descPackage.UNIV__HAS_STUDENTS:
+				getHasStudents().clear();
+				getHasStudents().addAll((Collection<? extends Student>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -236,6 +268,9 @@ public class UnivImpl extends MinimalEObjectImpl.Container implements Univ {
 			case Course_descPackage.UNIV__HAS_PRECOND:
 				getHasPrecond().clear();
 				return;
+			case Course_descPackage.UNIV__HAS_STUDENTS:
+				getHasStudents().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -256,6 +291,8 @@ public class UnivImpl extends MinimalEObjectImpl.Container implements Univ {
 				return hasPersons != null && !hasPersons.isEmpty();
 			case Course_descPackage.UNIV__HAS_PRECOND:
 				return hasPrecond != null && !hasPrecond.isEmpty();
+			case Course_descPackage.UNIV__HAS_STUDENTS:
+				return hasStudents != null && !hasStudents.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

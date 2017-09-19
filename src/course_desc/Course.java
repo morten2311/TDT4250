@@ -39,7 +39,7 @@ public interface Course extends EObject {
 	 * @return the value of the '<em>Code</em>' attribute.
 	 * @see #setCode(String)
 	 * @see course_desc.Course_descPackage#getCourse_Code()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getCode();
@@ -65,7 +65,7 @@ public interface Course extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see course_desc.Course_descPackage#getCourse_Name()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();
@@ -91,7 +91,7 @@ public interface Course extends EObject {
 	 * @return the value of the '<em>Content</em>' attribute.
 	 * @see #setContent(String)
 	 * @see course_desc.Course_descPackage#getCourse_Content()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getContent();
@@ -117,7 +117,7 @@ public interface Course extends EObject {
 	 * @return the value of the '<em>Credits</em>' attribute.
 	 * @see #setCredits(Double)
 	 * @see course_desc.Course_descPackage#getCourse_Credits()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	Double getCredits();

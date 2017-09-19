@@ -84,6 +84,12 @@ public class Course_descSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case Course_descPackage.EVALUATION: {
+				Evaluation evaluation = (Evaluation)theEObject;
+				T result = caseEvaluation(evaluation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case Course_descPackage.EXAM: {
 				Exam exam = (Exam)theEObject;
 				T result = caseExam(exam);
@@ -94,12 +100,6 @@ public class Course_descSwitch<T> extends Switch<T> {
 			case Course_descPackage.TIMETABLE: {
 				Timetable timetable = (Timetable)theEObject;
 				T result = caseTimetable(timetable);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case Course_descPackage.PERSON: {
-				Person person = (Person)theEObject;
-				T result = casePerson(person);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -121,28 +121,15 @@ public class Course_descSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case Course_descPackage.EVALUATION: {
-				Evaluation evaluation = (Evaluation)theEObject;
-				T result = caseEvaluation(evaluation);
+			case Course_descPackage.PERSON: {
+				Person person = (Person)theEObject;
+				T result = casePerson(person);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case Course_descPackage.PERSON_ROLE: {
 				PersonRole personRole = (PersonRole)theEObject;
 				T result = casePersonRole(personRole);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case Course_descPackage.UNIV: {
-				Univ univ = (Univ)theEObject;
-				T result = caseUniv(univ);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case Course_descPackage.EVALUATION_WITH_DEADLINE: {
-				EvaluationWithDeadline evaluationWithDeadline = (EvaluationWithDeadline)theEObject;
-				T result = caseEvaluationWithDeadline(evaluationWithDeadline);
-				if (result == null) result = caseEvaluation(evaluationWithDeadline);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -164,6 +151,19 @@ public class Course_descSwitch<T> extends Switch<T> {
 				CourseCoordinator courseCoordinator = (CourseCoordinator)theEObject;
 				T result = caseCourseCoordinator(courseCoordinator);
 				if (result == null) result = casePersonRole(courseCoordinator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Course_descPackage.UNIV: {
+				Univ univ = (Univ)theEObject;
+				T result = caseUniv(univ);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Course_descPackage.EVALUATION_WITH_DEADLINE: {
+				EvaluationWithDeadline evaluationWithDeadline = (EvaluationWithDeadline)theEObject;
+				T result = caseEvaluationWithDeadline(evaluationWithDeadline);
+				if (result == null) result = caseEvaluation(evaluationWithDeadline);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

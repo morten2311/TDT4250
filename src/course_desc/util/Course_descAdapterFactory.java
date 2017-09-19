@@ -80,16 +80,16 @@ public class Course_descAdapterFactory extends AdapterFactoryImpl {
 				return createDepartmentAdapter();
 			}
 			@Override
+			public Adapter caseEvaluation(Evaluation object) {
+				return createEvaluationAdapter();
+			}
+			@Override
 			public Adapter caseExam(Exam object) {
 				return createExamAdapter();
 			}
 			@Override
 			public Adapter caseTimetable(Timetable object) {
 				return createTimetableAdapter();
-			}
-			@Override
-			public Adapter casePerson(Person object) {
-				return createPersonAdapter();
 			}
 			@Override
 			public Adapter caseCoursePreconditions(CoursePreconditions object) {
@@ -104,20 +104,12 @@ public class Course_descAdapterFactory extends AdapterFactoryImpl {
 				return createStudyProgramAdapter();
 			}
 			@Override
-			public Adapter caseEvaluation(Evaluation object) {
-				return createEvaluationAdapter();
+			public Adapter casePerson(Person object) {
+				return createPersonAdapter();
 			}
 			@Override
 			public Adapter casePersonRole(PersonRole object) {
 				return createPersonRoleAdapter();
-			}
-			@Override
-			public Adapter caseUniv(Univ object) {
-				return createUnivAdapter();
-			}
-			@Override
-			public Adapter caseEvaluationWithDeadline(EvaluationWithDeadline object) {
-				return createEvaluationWithDeadlineAdapter();
 			}
 			@Override
 			public Adapter caseStudent(Student object) {
@@ -130,6 +122,14 @@ public class Course_descAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseCourseCoordinator(CourseCoordinator object) {
 				return createCourseCoordinatorAdapter();
+			}
+			@Override
+			public Adapter caseUniv(Univ object) {
+				return createUnivAdapter();
+			}
+			@Override
+			public Adapter caseEvaluationWithDeadline(EvaluationWithDeadline object) {
+				return createEvaluationWithDeadlineAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {

@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link course_desc.Univ#getHasCourses <em>Has Courses</em>}</li>
  *   <li>{@link course_desc.Univ#getHasPersons <em>Has Persons</em>}</li>
  *   <li>{@link course_desc.Univ#getHasPrecond <em>Has Precond</em>}</li>
+ *   <li>{@link course_desc.Univ#getHasStudents <em>Has Students</em>}</li>
  * </ul>
  *
  * @see course_desc.Course_descPackage#getUniv()
@@ -89,5 +90,21 @@ public interface Univ extends EObject {
 	 * @generated
 	 */
 	EList<CoursePreconditions> getHasPrecond();
+
+	/**
+	 * Returns the value of the '<em><b>Has Students</b></em>' containment reference list.
+	 * The list contents are of type {@link course_desc.Student}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Has Students</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Has Students</em>' containment reference list.
+	 * @see course_desc.Course_descPackage#getUniv_HasStudents()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Student> getHasStudents();
 
 } // Univ

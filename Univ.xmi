@@ -30,21 +30,15 @@
           date="2017-12-12T00:00:00.000+0100"
           place="somewhere"
           duration="4.0"/>
-      <hasEvaluations
-          xsi:type="course_desc:Exam"
-          Percentage="100.0"
-          date="2017-12-12T00:00:00.000+0100"
-          place="Spektrum"
-          duration="4.0"/>
-      <hasPersonRole
-          xsi:type="course_desc:CourseCoordinator"
-          linkedTo="//@hasPersons.1"/>
-      <hasPersonRole
-          xsi:type="course_desc:Lecturer"
-          linkedTo="//@hasPersons.3"/>
-      <hasPersonRole
-          xsi:type="course_desc:Lecturer"
-          linkedTo="//@hasPersons.2"/>
+      <hasLecturers
+          linkedTo="//@hasPersons.3"
+          belongsTo="//@hasDepartment.0/@responsible.0"/>
+      <hasLecturers
+          linkedTo="//@hasPersons.2"
+          belongsTo="//@hasDepartment.0/@responsible.0"/>
+      <hasCourseCoordinator
+          linkedTo="//@hasPersons.1"
+          belongsTo="//@hasDepartment.0/@responsible.0"/>
     </responsible>
     <responsible
         instanceOfCourse="//@hasCourses.1"
@@ -76,12 +70,12 @@
       <hasEvaluations
           xsi:type="course_desc:EvaluationWithDeadline"
           Percentage="30.0"/>
-      <hasPersonRole
-          xsi:type="course_desc:CourseCoordinator"
-          linkedTo="//@hasPersons.0"/>
-      <hasPersonRole
-          xsi:type="course_desc:Lecturer"
-          linkedTo="//@hasPersons.0"/>
+      <hasLecturers
+          linkedTo="//@hasPersons.0"
+          belongsTo="//@hasDepartment.0/@responsible.1"/>
+      <hasCourseCoordinator
+          linkedTo="//@hasPersons.0"
+          belongsTo="//@hasDepartment.0/@responsible.1"/>
     </responsible>
     <manages
         offers="//@hasCourses.0 //@hasCourses.1"/>
@@ -113,16 +107,23 @@
       Credits="7.5"/>
   <hasCourses
       Code="TDT4140"
-      name="Programvareutvikling"/>
+      name="Programvareutvikling"
+      Content="blabla"
+      Credits="7.5"/>
   <hasCourses
       Code="TDT4175"
-      name="Informasjonssystemer"/>
+      name="Informasjonssystemer"
+      Content="blabla"
+      Credits="7.5"/>
   <hasCourses
       Code="TDT4240"
-      name="Programvarearkitektur"/>
+      name="Programvarearkitektur"
+      Content="blabla"
+      Credits="7.5"/>
   <hasCourses
       Code="TDT4105"
       name="Informasjonsteknologi, grunnkurs"
+      Content="blabla"
       Credits="7.5"
       hasInstance="//@hasDepartment.0/@responsible.0"
       hasPrecondition="//@hasPrecond.5"/>
@@ -132,18 +133,27 @@
       Content=""
       Credits="7.5"/>
   <hasPersons
-      name="Hallvard Trætteberg"
-      hasRole="//@hasDepartment.0/@responsible.1/@hasPersonRole.1 //@hasDepartment.0/@responsible.1/@hasPersonRole.0"/>
+      name="Hallvard"
+      hasRole="//@hasDepartment.0/@responsible.1/@hasLecturers.0 //@hasDepartment.0/@responsible.1/@hasCourseCoordinator.0"
+      lastName="Trætteberg"/>
   <hasPersons
       name="Alf"
-      hasRole="//@hasDepartment.0/@responsible.0/@hasPersonRole.0"/>
+      hasRole="//@hasDepartment.0/@responsible.0/@hasCourseCoordinator.0"
+      lastName="Wang"/>
   <hasPersons
-      name="Terje Rydland"
-      hasRole="//@hasDepartment.0/@responsible.0/@hasPersonRole.2"/>
+      personNr="2"
+      name="Terje"
+      hasRole="//@hasDepartment.0/@responsible.0/@hasLecturers.1"
+      lastName="Rydland"/>
   <hasPersons
-      personNr="12345678"
-      name="Rune Sætre3"
-      hasRole="//@hasDepartment.0/@responsible.0/@hasPersonRole.1"/>
+      personNr="12345678912"
+      name="Rune"
+      hasRole="//@hasDepartment.0/@responsible.0/@hasLecturers.0"
+      lastName=" Sætre3"/>
+  <hasPersons
+      name="Morten"
+      hasRole="//@hasStudents.0"
+      lastName="Lundenes"/>
   <hasPrecond
       isRecommended="true"
       belongsTo="//@hasCourses.5"/>
@@ -162,4 +172,7 @@
   <hasPrecond
       reductionPoints="7.5"
       belongsTo="//@hasCourses.7"/>
+  <hasStudents
+      linkedTo="//@hasPersons.4"
+      finishedExams="//@hasDepartment.0/@responsible.0/@hasEvaluations.0"/>
 </course_desc:Univ>

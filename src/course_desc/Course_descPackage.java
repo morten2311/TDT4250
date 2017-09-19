@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see course_desc.Course_descFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore validationDelegate='http://www.eclipse.org/emf/2002/Ecore/OCL'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore validationDelegate='http://www.eclipse.org/emf/2002/Ecore/OCL' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL'"
  * @generated
  */
 public interface Course_descPackage extends EPackage {
@@ -215,13 +215,22 @@ public interface Course_descPackage extends EPackage {
 	int COURSE_INSTANCE__IS_INSTANCE_OF = 6;
 
 	/**
-	 * The feature id for the '<em><b>Has Person Role</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Has Lecturers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE_INSTANCE__HAS_PERSON_ROLE = 7;
+	int COURSE_INSTANCE__HAS_LECTURERS = 7;
+
+	/**
+	 * The feature id for the '<em><b>Has Course Coordinator</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COURSE_INSTANCE__HAS_COURSE_COORDINATOR = 8;
 
 	/**
 	 * The number of structural features of the '<em>Course Instance</em>' class.
@@ -230,7 +239,7 @@ public interface Course_descPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE_INSTANCE_FEATURE_COUNT = 8;
+	int COURSE_INSTANCE_FEATURE_COUNT = 9;
 
 	/**
 	 * The number of operations of the '<em>Course Instance</em>' class.
@@ -304,7 +313,7 @@ public interface Course_descPackage extends EPackage {
 	 * @see course_desc.impl.Course_descPackageImpl#getEvaluation()
 	 * @generated
 	 */
-	int EVALUATION = 9;
+	int EVALUATION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Percentage</b></em>' attribute.
@@ -350,7 +359,7 @@ public interface Course_descPackage extends EPackage {
 	 * @see course_desc.impl.Course_descPackageImpl#getExam()
 	 * @generated
 	 */
-	int EXAM = 3;
+	int EXAM = 4;
 
 	/**
 	 * The feature id for the '<em><b>Percentage</b></em>' attribute.
@@ -432,7 +441,7 @@ public interface Course_descPackage extends EPackage {
 	 * @see course_desc.impl.Course_descPackageImpl#getTimetable()
 	 * @generated
 	 */
-	int TIMETABLE = 4;
+	int TIMETABLE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Has Course Work</b></em>' containment reference list.
@@ -478,52 +487,7 @@ public interface Course_descPackage extends EPackage {
 	 * @see course_desc.impl.Course_descPackageImpl#getPerson()
 	 * @generated
 	 */
-	int PERSON = 5;
-
-	/**
-	 * The feature id for the '<em><b>Person Nr</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PERSON__PERSON_NR = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PERSON__NAME = 1;
-
-	/**
-	 * The feature id for the '<em><b>Has Role</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PERSON__HAS_ROLE = 2;
-
-	/**
-	 * The number of structural features of the '<em>Person</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PERSON_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Person</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PERSON_OPERATION_COUNT = 0;
+	int PERSON = 9;
 
 	/**
 	 * The meta object id for the '{@link course_desc.impl.CoursePreconditionsImpl <em>Course Preconditions</em>}' class.
@@ -718,6 +682,69 @@ public interface Course_descPackage extends EPackage {
 	int STUDY_PROGRAM_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Person Nr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSON__PERSON_NR = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSON__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Has Role</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSON__HAS_ROLE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSON__FULL_NAME = 3;
+
+	/**
+	 * The feature id for the '<em><b>Last Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSON__LAST_NAME = 4;
+
+	/**
+	 * The number of structural features of the '<em>Person</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSON_FEATURE_COUNT = 5;
+
+	/**
+	 * The number of operations of the '<em>Person</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSON_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link course_desc.impl.PersonRoleImpl <em>Person Role</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -737,22 +764,13 @@ public interface Course_descPackage extends EPackage {
 	int PERSON_ROLE__LINKED_TO = 0;
 
 	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PERSON_ROLE__BELONGS_TO = 1;
-
-	/**
 	 * The number of structural features of the '<em>Person Role</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PERSON_ROLE_FEATURE_COUNT = 2;
+	int PERSON_ROLE_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Person Role</em>' class.
@@ -771,7 +789,200 @@ public interface Course_descPackage extends EPackage {
 	 * @see course_desc.impl.Course_descPackageImpl#getUniv()
 	 * @generated
 	 */
-	int UNIV = 11;
+	int UNIV = 14;
+
+	/**
+	 * The meta object id for the '{@link course_desc.impl.EvaluationWithDeadlineImpl <em>Evaluation With Deadline</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see course_desc.impl.EvaluationWithDeadlineImpl
+	 * @see course_desc.impl.Course_descPackageImpl#getEvaluationWithDeadline()
+	 * @generated
+	 */
+	int EVALUATION_WITH_DEADLINE = 15;
+
+	/**
+	 * The meta object id for the '{@link course_desc.impl.StudentImpl <em>Student</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see course_desc.impl.StudentImpl
+	 * @see course_desc.impl.Course_descPackageImpl#getStudent()
+	 * @generated
+	 */
+	int STUDENT = 11;
+
+	/**
+	 * The feature id for the '<em><b>Linked To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDENT__LINKED_TO = PERSON_ROLE__LINKED_TO;
+
+	/**
+	 * The feature id for the '<em><b>Has Exams</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDENT__HAS_EXAMS = PERSON_ROLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Finished Exams</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDENT__FINISHED_EXAMS = PERSON_ROLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Total Study Points</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDENT__TOTAL_STUDY_POINTS = PERSON_ROLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Student</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDENT_FEATURE_COUNT = PERSON_ROLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Sign Up For Exam</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDENT___SIGN_UP_FOR_EXAM__EXAM = PERSON_ROLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Cancel Exam</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDENT___CANCEL_EXAM__EXAM = PERSON_ROLE_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Take Exam</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDENT___TAKE_EXAM__EXAM = PERSON_ROLE_OPERATION_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Student</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDENT_OPERATION_COUNT = PERSON_ROLE_OPERATION_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link course_desc.impl.LecturerImpl <em>Lecturer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see course_desc.impl.LecturerImpl
+	 * @see course_desc.impl.Course_descPackageImpl#getLecturer()
+	 * @generated
+	 */
+	int LECTURER = 12;
+
+	/**
+	 * The feature id for the '<em><b>Linked To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LECTURER__LINKED_TO = PERSON_ROLE__LINKED_TO;
+
+	/**
+	 * The feature id for the '<em><b>Belongs To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LECTURER__BELONGS_TO = PERSON_ROLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Lecturer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LECTURER_FEATURE_COUNT = PERSON_ROLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Lecturer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LECTURER_OPERATION_COUNT = PERSON_ROLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link course_desc.impl.CourseCoordinatorImpl <em>Course Coordinator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see course_desc.impl.CourseCoordinatorImpl
+	 * @see course_desc.impl.Course_descPackageImpl#getCourseCoordinator()
+	 * @generated
+	 */
+	int COURSE_COORDINATOR = 13;
+
+	/**
+	 * The feature id for the '<em><b>Linked To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COURSE_COORDINATOR__LINKED_TO = PERSON_ROLE__LINKED_TO;
+
+	/**
+	 * The feature id for the '<em><b>Belongs To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COURSE_COORDINATOR__BELONGS_TO = PERSON_ROLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Course Coordinator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COURSE_COORDINATOR_FEATURE_COUNT = PERSON_ROLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Course Coordinator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COURSE_COORDINATOR_OPERATION_COUNT = PERSON_ROLE_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Has Department</b></em>' containment reference list.
@@ -810,13 +1021,22 @@ public interface Course_descPackage extends EPackage {
 	int UNIV__HAS_PRECOND = 3;
 
 	/**
+	 * The feature id for the '<em><b>Has Students</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIV__HAS_STUDENTS = 4;
+
+	/**
 	 * The number of structural features of the '<em>Univ</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNIV_FEATURE_COUNT = 4;
+	int UNIV_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Univ</em>' class.
@@ -826,16 +1046,6 @@ public interface Course_descPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNIV_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link course_desc.impl.EvaluationWithDeadlineImpl <em>Evaluation With Deadline</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see course_desc.impl.EvaluationWithDeadlineImpl
-	 * @see course_desc.impl.Course_descPackageImpl#getEvaluationWithDeadline()
-	 * @generated
-	 */
-	int EVALUATION_WITH_DEADLINE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Percentage</b></em>' attribute.
@@ -883,180 +1093,6 @@ public interface Course_descPackage extends EPackage {
 	int EVALUATION_WITH_DEADLINE_OPERATION_COUNT = EVALUATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link course_desc.impl.StudentImpl <em>Student</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see course_desc.impl.StudentImpl
-	 * @see course_desc.impl.Course_descPackageImpl#getStudent()
-	 * @generated
-	 */
-	int STUDENT = 13;
-
-	/**
-	 * The feature id for the '<em><b>Linked To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDENT__LINKED_TO = PERSON_ROLE__LINKED_TO;
-
-	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDENT__BELONGS_TO = PERSON_ROLE__BELONGS_TO;
-
-	/**
-	 * The feature id for the '<em><b>Has Exams</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDENT__HAS_EXAMS = PERSON_ROLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Student</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDENT_FEATURE_COUNT = PERSON_ROLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Sign Up For Exam</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDENT___SIGN_UP_FOR_EXAM__EXAM = PERSON_ROLE_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Cancel Exam</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDENT___CANCEL_EXAM = PERSON_ROLE_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Take Exam</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDENT___TAKE_EXAM = PERSON_ROLE_OPERATION_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Student</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDENT_OPERATION_COUNT = PERSON_ROLE_OPERATION_COUNT + 3;
-
-	/**
-	 * The meta object id for the '{@link course_desc.impl.LecturerImpl <em>Lecturer</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see course_desc.impl.LecturerImpl
-	 * @see course_desc.impl.Course_descPackageImpl#getLecturer()
-	 * @generated
-	 */
-	int LECTURER = 14;
-
-	/**
-	 * The feature id for the '<em><b>Linked To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LECTURER__LINKED_TO = PERSON_ROLE__LINKED_TO;
-
-	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LECTURER__BELONGS_TO = PERSON_ROLE__BELONGS_TO;
-
-	/**
-	 * The number of structural features of the '<em>Lecturer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LECTURER_FEATURE_COUNT = PERSON_ROLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Lecturer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LECTURER_OPERATION_COUNT = PERSON_ROLE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link course_desc.impl.CourseCoordinatorImpl <em>Course Coordinator</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see course_desc.impl.CourseCoordinatorImpl
-	 * @see course_desc.impl.Course_descPackageImpl#getCourseCoordinator()
-	 * @generated
-	 */
-	int COURSE_COORDINATOR = 15;
-
-	/**
-	 * The feature id for the '<em><b>Linked To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COURSE_COORDINATOR__LINKED_TO = PERSON_ROLE__LINKED_TO;
-
-	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COURSE_COORDINATOR__BELONGS_TO = PERSON_ROLE__BELONGS_TO;
-
-	/**
-	 * The number of structural features of the '<em>Course Coordinator</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COURSE_COORDINATOR_FEATURE_COUNT = PERSON_ROLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Course Coordinator</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COURSE_COORDINATOR_OPERATION_COUNT = PERSON_ROLE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link course_desc.CourseWorkType <em>Course Work Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1077,16 +1113,6 @@ public interface Course_descPackage extends EPackage {
 	int STUDY_PROGRAM_CODE = 17;
 
 	/**
-	 * The meta object id for the '{@link course_desc.Role <em>Role</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see course_desc.Role
-	 * @see course_desc.impl.Course_descPackageImpl#getRole()
-	 * @generated
-	 */
-	int ROLE = 18;
-
-	/**
 	 * The meta object id for the '{@link course_desc.DeadlineEvaluation <em>Deadline Evaluation</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1094,7 +1120,7 @@ public interface Course_descPackage extends EPackage {
 	 * @see course_desc.impl.Course_descPackageImpl#getDeadlineEvaluation()
 	 * @generated
 	 */
-	int DEADLINE_EVALUATION = 19;
+	int DEADLINE_EVALUATION = 18;
 
 
 	/**
@@ -1261,15 +1287,26 @@ public interface Course_descPackage extends EPackage {
 	EReference getCourseInstance_IsInstanceOf();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link course_desc.CourseInstance#getHasPersonRole <em>Has Person Role</em>}'.
+	 * Returns the meta object for the containment reference list '{@link course_desc.CourseInstance#getHasLecturers <em>Has Lecturers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Has Person Role</em>'.
-	 * @see course_desc.CourseInstance#getHasPersonRole()
+	 * @return the meta object for the containment reference list '<em>Has Lecturers</em>'.
+	 * @see course_desc.CourseInstance#getHasLecturers()
 	 * @see #getCourseInstance()
 	 * @generated
 	 */
-	EReference getCourseInstance_HasPersonRole();
+	EReference getCourseInstance_HasLecturers();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link course_desc.CourseInstance#getHasCourseCoordinator <em>Has Course Coordinator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Has Course Coordinator</em>'.
+	 * @see course_desc.CourseInstance#getHasCourseCoordinator()
+	 * @see #getCourseInstance()
+	 * @generated
+	 */
+	EReference getCourseInstance_HasCourseCoordinator();
 
 	/**
 	 * Returns the meta object for class '{@link course_desc.Department <em>Department</em>}'.
@@ -1442,6 +1479,28 @@ public interface Course_descPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPerson_HasRole();
+
+	/**
+	 * Returns the meta object for the attribute '{@link course_desc.Person#getFullName <em>Full Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Full Name</em>'.
+	 * @see course_desc.Person#getFullName()
+	 * @see #getPerson()
+	 * @generated
+	 */
+	EAttribute getPerson_FullName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link course_desc.Person#getLastName <em>Last Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Last Name</em>'.
+	 * @see course_desc.Person#getLastName()
+	 * @see #getPerson()
+	 * @generated
+	 */
+	EAttribute getPerson_LastName();
 
 	/**
 	 * Returns the meta object for class '{@link course_desc.CoursePreconditions <em>Course Preconditions</em>}'.
@@ -1659,17 +1718,6 @@ public interface Course_descPackage extends EPackage {
 	EReference getPersonRole_LinkedTo();
 
 	/**
-	 * Returns the meta object for the container reference '{@link course_desc.PersonRole#getBelongsTo <em>Belongs To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Belongs To</em>'.
-	 * @see course_desc.PersonRole#getBelongsTo()
-	 * @see #getPersonRole()
-	 * @generated
-	 */
-	EReference getPersonRole_BelongsTo();
-
-	/**
 	 * Returns the meta object for class '{@link course_desc.Univ <em>Univ</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1724,6 +1772,17 @@ public interface Course_descPackage extends EPackage {
 	EReference getUniv_HasPrecond();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link course_desc.Univ#getHasStudents <em>Has Students</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Has Students</em>'.
+	 * @see course_desc.Univ#getHasStudents()
+	 * @see #getUniv()
+	 * @generated
+	 */
+	EReference getUniv_HasStudents();
+
+	/**
 	 * Returns the meta object for class '{@link course_desc.EvaluationWithDeadline <em>Evaluation With Deadline</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1766,6 +1825,28 @@ public interface Course_descPackage extends EPackage {
 	EReference getStudent_HasExams();
 
 	/**
+	 * Returns the meta object for the reference list '{@link course_desc.Student#getFinishedExams <em>Finished Exams</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Finished Exams</em>'.
+	 * @see course_desc.Student#getFinishedExams()
+	 * @see #getStudent()
+	 * @generated
+	 */
+	EReference getStudent_FinishedExams();
+
+	/**
+	 * Returns the meta object for the attribute '{@link course_desc.Student#getTotalStudyPoints <em>Total Study Points</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Total Study Points</em>'.
+	 * @see course_desc.Student#getTotalStudyPoints()
+	 * @see #getStudent()
+	 * @generated
+	 */
+	EAttribute getStudent_TotalStudyPoints();
+
+	/**
 	 * Returns the meta object for the '{@link course_desc.Student#signUpForExam(course_desc.Exam) <em>Sign Up For Exam</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1776,24 +1857,24 @@ public interface Course_descPackage extends EPackage {
 	EOperation getStudent__SignUpForExam__Exam();
 
 	/**
-	 * Returns the meta object for the '{@link course_desc.Student#cancelExam() <em>Cancel Exam</em>}' operation.
+	 * Returns the meta object for the '{@link course_desc.Student#cancelExam(course_desc.Exam) <em>Cancel Exam</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Cancel Exam</em>' operation.
-	 * @see course_desc.Student#cancelExam()
+	 * @see course_desc.Student#cancelExam(course_desc.Exam)
 	 * @generated
 	 */
-	EOperation getStudent__CancelExam();
+	EOperation getStudent__CancelExam__Exam();
 
 	/**
-	 * Returns the meta object for the '{@link course_desc.Student#takeExam() <em>Take Exam</em>}' operation.
+	 * Returns the meta object for the '{@link course_desc.Student#takeExam(course_desc.Exam) <em>Take Exam</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Take Exam</em>' operation.
-	 * @see course_desc.Student#takeExam()
+	 * @see course_desc.Student#takeExam(course_desc.Exam)
 	 * @generated
 	 */
-	EOperation getStudent__TakeExam();
+	EOperation getStudent__TakeExam__Exam();
 
 	/**
 	 * Returns the meta object for class '{@link course_desc.Lecturer <em>Lecturer</em>}'.
@@ -1806,6 +1887,17 @@ public interface Course_descPackage extends EPackage {
 	EClass getLecturer();
 
 	/**
+	 * Returns the meta object for the reference '{@link course_desc.Lecturer#getBelongsTo <em>Belongs To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Belongs To</em>'.
+	 * @see course_desc.Lecturer#getBelongsTo()
+	 * @see #getLecturer()
+	 * @generated
+	 */
+	EReference getLecturer_BelongsTo();
+
+	/**
 	 * Returns the meta object for class '{@link course_desc.CourseCoordinator <em>Course Coordinator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1814,6 +1906,17 @@ public interface Course_descPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCourseCoordinator();
+
+	/**
+	 * Returns the meta object for the reference '{@link course_desc.CourseCoordinator#getBelongsTo <em>Belongs To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Belongs To</em>'.
+	 * @see course_desc.CourseCoordinator#getBelongsTo()
+	 * @see #getCourseCoordinator()
+	 * @generated
+	 */
+	EReference getCourseCoordinator_BelongsTo();
 
 	/**
 	 * Returns the meta object for enum '{@link course_desc.CourseWorkType <em>Course Work Type</em>}'.
@@ -1834,16 +1937,6 @@ public interface Course_descPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getStudyProgramCode();
-
-	/**
-	 * Returns the meta object for enum '{@link course_desc.Role <em>Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Role</em>'.
-	 * @see course_desc.Role
-	 * @generated
-	 */
-	EEnum getRole();
 
 	/**
 	 * Returns the meta object for enum '{@link course_desc.DeadlineEvaluation <em>Deadline Evaluation</em>}'.
@@ -2003,12 +2096,20 @@ public interface Course_descPackage extends EPackage {
 		EReference COURSE_INSTANCE__IS_INSTANCE_OF = eINSTANCE.getCourseInstance_IsInstanceOf();
 
 		/**
-		 * The meta object literal for the '<em><b>Has Person Role</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Has Lecturers</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COURSE_INSTANCE__HAS_PERSON_ROLE = eINSTANCE.getCourseInstance_HasPersonRole();
+		EReference COURSE_INSTANCE__HAS_LECTURERS = eINSTANCE.getCourseInstance_HasLecturers();
+
+		/**
+		 * The meta object literal for the '<em><b>Has Course Coordinator</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COURSE_INSTANCE__HAS_COURSE_COORDINATOR = eINSTANCE.getCourseInstance_HasCourseCoordinator();
 
 		/**
 		 * The meta object literal for the '{@link course_desc.impl.DepartmentImpl <em>Department</em>}' class.
@@ -2145,6 +2246,22 @@ public interface Course_descPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PERSON__HAS_ROLE = eINSTANCE.getPerson_HasRole();
+
+		/**
+		 * The meta object literal for the '<em><b>Full Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PERSON__FULL_NAME = eINSTANCE.getPerson_FullName();
+
+		/**
+		 * The meta object literal for the '<em><b>Last Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PERSON__LAST_NAME = eINSTANCE.getPerson_LastName();
 
 		/**
 		 * The meta object literal for the '{@link course_desc.impl.CoursePreconditionsImpl <em>Course Preconditions</em>}' class.
@@ -2317,14 +2434,6 @@ public interface Course_descPackage extends EPackage {
 		EReference PERSON_ROLE__LINKED_TO = eINSTANCE.getPersonRole_LinkedTo();
 
 		/**
-		 * The meta object literal for the '<em><b>Belongs To</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PERSON_ROLE__BELONGS_TO = eINSTANCE.getPersonRole_BelongsTo();
-
-		/**
 		 * The meta object literal for the '{@link course_desc.impl.UnivImpl <em>Univ</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2367,6 +2476,14 @@ public interface Course_descPackage extends EPackage {
 		EReference UNIV__HAS_PRECOND = eINSTANCE.getUniv_HasPrecond();
 
 		/**
+		 * The meta object literal for the '<em><b>Has Students</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UNIV__HAS_STUDENTS = eINSTANCE.getUniv_HasStudents();
+
+		/**
 		 * The meta object literal for the '{@link course_desc.impl.EvaluationWithDeadlineImpl <em>Evaluation With Deadline</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2403,6 +2520,22 @@ public interface Course_descPackage extends EPackage {
 		EReference STUDENT__HAS_EXAMS = eINSTANCE.getStudent_HasExams();
 
 		/**
+		 * The meta object literal for the '<em><b>Finished Exams</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STUDENT__FINISHED_EXAMS = eINSTANCE.getStudent_FinishedExams();
+
+		/**
+		 * The meta object literal for the '<em><b>Total Study Points</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STUDENT__TOTAL_STUDY_POINTS = eINSTANCE.getStudent_TotalStudyPoints();
+
+		/**
 		 * The meta object literal for the '<em><b>Sign Up For Exam</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2416,7 +2549,7 @@ public interface Course_descPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation STUDENT___CANCEL_EXAM = eINSTANCE.getStudent__CancelExam();
+		EOperation STUDENT___CANCEL_EXAM__EXAM = eINSTANCE.getStudent__CancelExam__Exam();
 
 		/**
 		 * The meta object literal for the '<em><b>Take Exam</b></em>' operation.
@@ -2424,7 +2557,7 @@ public interface Course_descPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation STUDENT___TAKE_EXAM = eINSTANCE.getStudent__TakeExam();
+		EOperation STUDENT___TAKE_EXAM__EXAM = eINSTANCE.getStudent__TakeExam__Exam();
 
 		/**
 		 * The meta object literal for the '{@link course_desc.impl.LecturerImpl <em>Lecturer</em>}' class.
@@ -2437,6 +2570,14 @@ public interface Course_descPackage extends EPackage {
 		EClass LECTURER = eINSTANCE.getLecturer();
 
 		/**
+		 * The meta object literal for the '<em><b>Belongs To</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LECTURER__BELONGS_TO = eINSTANCE.getLecturer_BelongsTo();
+
+		/**
 		 * The meta object literal for the '{@link course_desc.impl.CourseCoordinatorImpl <em>Course Coordinator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2445,6 +2586,14 @@ public interface Course_descPackage extends EPackage {
 		 * @generated
 		 */
 		EClass COURSE_COORDINATOR = eINSTANCE.getCourseCoordinator();
+
+		/**
+		 * The meta object literal for the '<em><b>Belongs To</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COURSE_COORDINATOR__BELONGS_TO = eINSTANCE.getCourseCoordinator_BelongsTo();
 
 		/**
 		 * The meta object literal for the '{@link course_desc.CourseWorkType <em>Course Work Type</em>}' enum.
@@ -2465,16 +2614,6 @@ public interface Course_descPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum STUDY_PROGRAM_CODE = eINSTANCE.getStudyProgramCode();
-
-		/**
-		 * The meta object literal for the '{@link course_desc.Role <em>Role</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see course_desc.Role
-		 * @see course_desc.impl.Course_descPackageImpl#getRole()
-		 * @generated
-		 */
-		EEnum ROLE = eINSTANCE.getRole();
 
 		/**
 		 * The meta object literal for the '{@link course_desc.DeadlineEvaluation <em>Deadline Evaluation</em>}' enum.

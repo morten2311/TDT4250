@@ -16,6 +16,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -35,6 +36,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link course_desc.impl.PersonImpl#getPersonNr <em>Person Nr</em>}</li>
  *   <li>{@link course_desc.impl.PersonImpl#getName <em>Name</em>}</li>
  *   <li>{@link course_desc.impl.PersonImpl#getHasRole <em>Has Role</em>}</li>
+ *   <li>{@link course_desc.impl.PersonImpl#getFullName <em>Full Name</em>}</li>
+ *   <li>{@link course_desc.impl.PersonImpl#getLastName <em>Last Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -89,6 +92,36 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	 * @ordered
 	 */
 	protected EList<PersonRole> hasRole;
+
+	/**
+	 * The cached setting delegate for the '{@link #getFullName() <em>Full Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFullName()
+	 * @generated
+	 * @ordered
+	 */
+	protected EStructuralFeature.Internal.SettingDelegate FULL_NAME__ESETTING_DELEGATE = ((EStructuralFeature.Internal)Course_descPackage.Literals.PERSON__FULL_NAME).getSettingDelegate();
+
+	/**
+	 * The default value of the '{@link #getLastName() <em>Last Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LAST_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLastName() <em>Last Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String lastName = LAST_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -168,6 +201,45 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getFullName() {
+		return (String)FULL_NAME__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFullName(String newFullName) {
+		FULL_NAME__ESETTING_DELEGATE.dynamicSet(this, null, 0, newFullName);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getLastName() {
+		return lastName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLastName(String newLastName) {
+		String oldLastName = lastName;
+		lastName = newLastName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Course_descPackage.PERSON__LAST_NAME, oldLastName, lastName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -206,6 +278,10 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 				return getName();
 			case Course_descPackage.PERSON__HAS_ROLE:
 				return getHasRole();
+			case Course_descPackage.PERSON__FULL_NAME:
+				return getFullName();
+			case Course_descPackage.PERSON__LAST_NAME:
+				return getLastName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -229,6 +305,12 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 				getHasRole().clear();
 				getHasRole().addAll((Collection<? extends PersonRole>)newValue);
 				return;
+			case Course_descPackage.PERSON__FULL_NAME:
+				setFullName((String)newValue);
+				return;
+			case Course_descPackage.PERSON__LAST_NAME:
+				setLastName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -250,6 +332,12 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 			case Course_descPackage.PERSON__HAS_ROLE:
 				getHasRole().clear();
 				return;
+			case Course_descPackage.PERSON__FULL_NAME:
+				FULL_NAME__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
+				return;
+			case Course_descPackage.PERSON__LAST_NAME:
+				setLastName(LAST_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -268,6 +356,10 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case Course_descPackage.PERSON__HAS_ROLE:
 				return hasRole != null && !hasRole.isEmpty();
+			case Course_descPackage.PERSON__FULL_NAME:
+				return FULL_NAME__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+			case Course_descPackage.PERSON__LAST_NAME:
+				return LAST_NAME_EDEFAULT == null ? lastName != null : !LAST_NAME_EDEFAULT.equals(lastName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -286,6 +378,8 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 		result.append(personNr);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", lastName: ");
+		result.append(lastName);
 		result.append(')');
 		return result.toString();
 	}

@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link course_desc.PersonRole#getLinkedTo <em>Linked To</em>}</li>
- *   <li>{@link course_desc.PersonRole#getBelongsTo <em>Belongs To</em>}</li>
  * </ul>
  *
  * @see course_desc.Course_descPackage#getPersonRole()
@@ -49,33 +48,5 @@ public interface PersonRole extends EObject {
 	 * @generated
 	 */
 	void setLinkedTo(Person value);
-
-	/**
-	 * Returns the value of the '<em><b>Belongs To</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link course_desc.CourseInstance#getHasPersonRole <em>Has Person Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Belongs To</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Belongs To</em>' container reference.
-	 * @see #setBelongsTo(CourseInstance)
-	 * @see course_desc.Course_descPackage#getPersonRole_BelongsTo()
-	 * @see course_desc.CourseInstance#getHasPersonRole
-	 * @model opposite="hasPersonRole" transient="false"
-	 * @generated
-	 */
-	CourseInstance getBelongsTo();
-
-	/**
-	 * Sets the value of the '{@link course_desc.PersonRole#getBelongsTo <em>Belongs To</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Belongs To</em>' container reference.
-	 * @see #getBelongsTo()
-	 * @generated
-	 */
-	void setBelongsTo(CourseInstance value);
 
 } // PersonRole

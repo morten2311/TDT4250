@@ -92,38 +92,36 @@ public class Course_descValidator extends EObjectValidator {
 				return validateCourseInstance((CourseInstance)value, diagnostics, context);
 			case Course_descPackage.DEPARTMENT:
 				return validateDepartment((Department)value, diagnostics, context);
+			case Course_descPackage.EVALUATION:
+				return validateEvaluation((Evaluation)value, diagnostics, context);
 			case Course_descPackage.EXAM:
 				return validateExam((Exam)value, diagnostics, context);
 			case Course_descPackage.TIMETABLE:
 				return validateTimetable((Timetable)value, diagnostics, context);
-			case Course_descPackage.PERSON:
-				return validatePerson((Person)value, diagnostics, context);
 			case Course_descPackage.COURSE_PRECONDITIONS:
 				return validateCoursePreconditions((CoursePreconditions)value, diagnostics, context);
 			case Course_descPackage.COURSE_WORK:
 				return validateCourseWork((CourseWork)value, diagnostics, context);
 			case Course_descPackage.STUDY_PROGRAM:
 				return validateStudyProgram((StudyProgram)value, diagnostics, context);
-			case Course_descPackage.EVALUATION:
-				return validateEvaluation((Evaluation)value, diagnostics, context);
+			case Course_descPackage.PERSON:
+				return validatePerson((Person)value, diagnostics, context);
 			case Course_descPackage.PERSON_ROLE:
 				return validatePersonRole((PersonRole)value, diagnostics, context);
-			case Course_descPackage.UNIV:
-				return validateUniv((Univ)value, diagnostics, context);
-			case Course_descPackage.EVALUATION_WITH_DEADLINE:
-				return validateEvaluationWithDeadline((EvaluationWithDeadline)value, diagnostics, context);
 			case Course_descPackage.STUDENT:
 				return validateStudent((Student)value, diagnostics, context);
 			case Course_descPackage.LECTURER:
 				return validateLecturer((Lecturer)value, diagnostics, context);
 			case Course_descPackage.COURSE_COORDINATOR:
 				return validateCourseCoordinator((CourseCoordinator)value, diagnostics, context);
+			case Course_descPackage.UNIV:
+				return validateUniv((Univ)value, diagnostics, context);
+			case Course_descPackage.EVALUATION_WITH_DEADLINE:
+				return validateEvaluationWithDeadline((EvaluationWithDeadline)value, diagnostics, context);
 			case Course_descPackage.COURSE_WORK_TYPE:
 				return validateCourseWorkType((CourseWorkType)value, diagnostics, context);
 			case Course_descPackage.STUDY_PROGRAM_CODE:
 				return validateStudyProgramCode((StudyProgramCode)value, diagnostics, context);
-			case Course_descPackage.ROLE:
-				return validateRole((Role)value, diagnostics, context);
 			case Course_descPackage.DEADLINE_EVALUATION:
 				return validateDeadlineEvaluation((DeadlineEvaluation)value, diagnostics, context);
 			default:
@@ -193,6 +191,7 @@ public class Course_descValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(person, diagnostics, context);
 		if (result || diagnostics != null) result &= validatePerson_onlyLetters(person, diagnostics, context);
 		if (result || diagnostics != null) result &= validatePerson_onlyElevenNumbers(person, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePerson_personNRnotEmpty(person, diagnostics, context);
 		return result;
 	}
 
@@ -244,6 +243,34 @@ public class Course_descValidator extends EObjectValidator {
 						 0,
 						 "_UI_GenericConstraint_diagnostic",
 						 new Object[] { "onlyElevenNumbers", getObjectLabel(person, context) },
+						 new Object[] { person },
+						 context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the personNRnotEmpty constraint of '<em>Person</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePerson_personNRnotEmpty(Person person, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "personNRnotEmpty", getObjectLabel(person, context) },
 						 new Object[] { person },
 						 context));
 			}
@@ -366,15 +393,6 @@ public class Course_descValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateStudyProgramCode(StudyProgramCode studyProgramCode, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateRole(Role role, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

@@ -3,11 +3,12 @@
 package course_desc.impl;
 
 import course_desc.Course;
+import course_desc.CourseCoordinator;
 import course_desc.CourseInstance;
 import course_desc.Course_descPackage;
 import course_desc.Department;
 import course_desc.Evaluation;
-import course_desc.PersonRole;
+import course_desc.Lecturer;
 import course_desc.Timetable;
 
 import java.util.Collection;
@@ -43,7 +44,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link course_desc.impl.CourseInstanceImpl#getLectureHours <em>Lecture Hours</em>}</li>
  *   <li>{@link course_desc.impl.CourseInstanceImpl#getLabHours <em>Lab Hours</em>}</li>
  *   <li>{@link course_desc.impl.CourseInstanceImpl#getIsInstanceOf <em>Is Instance Of</em>}</li>
- *   <li>{@link course_desc.impl.CourseInstanceImpl#getHasPersonRole <em>Has Person Role</em>}</li>
+ *   <li>{@link course_desc.impl.CourseInstanceImpl#getHasLecturers <em>Has Lecturers</em>}</li>
+ *   <li>{@link course_desc.impl.CourseInstanceImpl#getHasCourseCoordinator <em>Has Course Coordinator</em>}</li>
  * </ul>
  *
  * @generated
@@ -140,14 +142,24 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 	protected double labHours = LAB_HOURS_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getHasPersonRole() <em>Has Person Role</em>}' containment reference list.
+	 * The cached value of the '{@link #getHasLecturers() <em>Has Lecturers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getHasPersonRole()
+	 * @see #getHasLecturers()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PersonRole> hasPersonRole;
+	protected EList<Lecturer> hasLecturers;
+
+	/**
+	 * The cached value of the '{@link #getHasCourseCoordinator() <em>Has Course Coordinator</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHasCourseCoordinator()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CourseCoordinator> hasCourseCoordinator;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -361,11 +373,23 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<PersonRole> getHasPersonRole() {
-		if (hasPersonRole == null) {
-			hasPersonRole = new EObjectContainmentWithInverseEList<PersonRole>(PersonRole.class, this, Course_descPackage.COURSE_INSTANCE__HAS_PERSON_ROLE, Course_descPackage.PERSON_ROLE__BELONGS_TO);
+	public EList<Lecturer> getHasLecturers() {
+		if (hasLecturers == null) {
+			hasLecturers = new EObjectContainmentEList<Lecturer>(Lecturer.class, this, Course_descPackage.COURSE_INSTANCE__HAS_LECTURERS);
 		}
-		return hasPersonRole;
+		return hasLecturers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CourseCoordinator> getHasCourseCoordinator() {
+		if (hasCourseCoordinator == null) {
+			hasCourseCoordinator = new EObjectContainmentEList<CourseCoordinator>(CourseCoordinator.class, this, Course_descPackage.COURSE_INSTANCE__HAS_COURSE_COORDINATOR);
+		}
+		return hasCourseCoordinator;
 	}
 
 	/**
@@ -387,8 +411,6 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetIsInstanceOf((Department)otherEnd, msgs);
-			case Course_descPackage.COURSE_INSTANCE__HAS_PERSON_ROLE:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHasPersonRole()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -409,8 +431,10 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 				return ((InternalEList<?>)getHasEvaluations()).basicRemove(otherEnd, msgs);
 			case Course_descPackage.COURSE_INSTANCE__IS_INSTANCE_OF:
 				return basicSetIsInstanceOf(null, msgs);
-			case Course_descPackage.COURSE_INSTANCE__HAS_PERSON_ROLE:
-				return ((InternalEList<?>)getHasPersonRole()).basicRemove(otherEnd, msgs);
+			case Course_descPackage.COURSE_INSTANCE__HAS_LECTURERS:
+				return ((InternalEList<?>)getHasLecturers()).basicRemove(otherEnd, msgs);
+			case Course_descPackage.COURSE_INSTANCE__HAS_COURSE_COORDINATOR:
+				return ((InternalEList<?>)getHasCourseCoordinator()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -452,8 +476,10 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 				return getLabHours();
 			case Course_descPackage.COURSE_INSTANCE__IS_INSTANCE_OF:
 				return getIsInstanceOf();
-			case Course_descPackage.COURSE_INSTANCE__HAS_PERSON_ROLE:
-				return getHasPersonRole();
+			case Course_descPackage.COURSE_INSTANCE__HAS_LECTURERS:
+				return getHasLecturers();
+			case Course_descPackage.COURSE_INSTANCE__HAS_COURSE_COORDINATOR:
+				return getHasCourseCoordinator();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -490,9 +516,13 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 			case Course_descPackage.COURSE_INSTANCE__IS_INSTANCE_OF:
 				setIsInstanceOf((Department)newValue);
 				return;
-			case Course_descPackage.COURSE_INSTANCE__HAS_PERSON_ROLE:
-				getHasPersonRole().clear();
-				getHasPersonRole().addAll((Collection<? extends PersonRole>)newValue);
+			case Course_descPackage.COURSE_INSTANCE__HAS_LECTURERS:
+				getHasLecturers().clear();
+				getHasLecturers().addAll((Collection<? extends Lecturer>)newValue);
+				return;
+			case Course_descPackage.COURSE_INSTANCE__HAS_COURSE_COORDINATOR:
+				getHasCourseCoordinator().clear();
+				getHasCourseCoordinator().addAll((Collection<? extends CourseCoordinator>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -527,8 +557,11 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 			case Course_descPackage.COURSE_INSTANCE__IS_INSTANCE_OF:
 				setIsInstanceOf((Department)null);
 				return;
-			case Course_descPackage.COURSE_INSTANCE__HAS_PERSON_ROLE:
-				getHasPersonRole().clear();
+			case Course_descPackage.COURSE_INSTANCE__HAS_LECTURERS:
+				getHasLecturers().clear();
+				return;
+			case Course_descPackage.COURSE_INSTANCE__HAS_COURSE_COORDINATOR:
+				getHasCourseCoordinator().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -556,8 +589,10 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 				return labHours != LAB_HOURS_EDEFAULT;
 			case Course_descPackage.COURSE_INSTANCE__IS_INSTANCE_OF:
 				return getIsInstanceOf() != null;
-			case Course_descPackage.COURSE_INSTANCE__HAS_PERSON_ROLE:
-				return hasPersonRole != null && !hasPersonRole.isEmpty();
+			case Course_descPackage.COURSE_INSTANCE__HAS_LECTURERS:
+				return hasLecturers != null && !hasLecturers.isEmpty();
+			case Course_descPackage.COURSE_INSTANCE__HAS_COURSE_COORDINATOR:
+				return hasCourseCoordinator != null && !hasCourseCoordinator.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

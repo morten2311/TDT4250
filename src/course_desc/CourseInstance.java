@@ -22,7 +22,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link course_desc.CourseInstance#getLectureHours <em>Lecture Hours</em>}</li>
  *   <li>{@link course_desc.CourseInstance#getLabHours <em>Lab Hours</em>}</li>
  *   <li>{@link course_desc.CourseInstance#getIsInstanceOf <em>Is Instance Of</em>}</li>
- *   <li>{@link course_desc.CourseInstance#getHasPersonRole <em>Has Person Role</em>}</li>
+ *   <li>{@link course_desc.CourseInstance#getHasLecturers <em>Has Lecturers</em>}</li>
+ *   <li>{@link course_desc.CourseInstance#getHasCourseCoordinator <em>Has Course Coordinator</em>}</li>
  * </ul>
  *
  * @see course_desc.Course_descPackage#getCourseInstance()
@@ -103,7 +104,7 @@ public interface CourseInstance extends EObject {
 	 * @return the value of the '<em>Year</em>' attribute.
 	 * @see #setYear(int)
 	 * @see course_desc.Course_descPackage#getCourseInstance_Year()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	int getYear();
@@ -199,21 +200,35 @@ public interface CourseInstance extends EObject {
 	void setIsInstanceOf(Department value);
 
 	/**
-	 * Returns the value of the '<em><b>Has Person Role</b></em>' containment reference list.
-	 * The list contents are of type {@link course_desc.PersonRole}.
-	 * It is bidirectional and its opposite is '{@link course_desc.PersonRole#getBelongsTo <em>Belongs To</em>}'.
+	 * Returns the value of the '<em><b>Has Lecturers</b></em>' containment reference list.
+	 * The list contents are of type {@link course_desc.Lecturer}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Has Person Role</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Has Lecturers</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Has Person Role</em>' containment reference list.
-	 * @see course_desc.Course_descPackage#getCourseInstance_HasPersonRole()
-	 * @see course_desc.PersonRole#getBelongsTo
-	 * @model opposite="belongsTo" containment="true"
+	 * @return the value of the '<em>Has Lecturers</em>' containment reference list.
+	 * @see course_desc.Course_descPackage#getCourseInstance_HasLecturers()
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<PersonRole> getHasPersonRole();
+	EList<Lecturer> getHasLecturers();
+
+	/**
+	 * Returns the value of the '<em><b>Has Course Coordinator</b></em>' containment reference list.
+	 * The list contents are of type {@link course_desc.CourseCoordinator}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Has Course Coordinator</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Has Course Coordinator</em>' containment reference list.
+	 * @see course_desc.Course_descPackage#getCourseInstance_HasCourseCoordinator()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<CourseCoordinator> getHasCourseCoordinator();
 
 } // CourseInstance
