@@ -2,6 +2,7 @@
  */
 package course_desc.impl;
 
+import course_desc.CoursePreconditions;
 import course_desc.Course_descPackage;
 import course_desc.Exam;
 import course_desc.Student;
@@ -13,7 +14,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
@@ -55,14 +55,14 @@ public class StudentImpl extends PersonRoleImpl implements Student {
 	 */
 	protected EList<Exam> finishedExams;
 	/**
-	 * The cached setting delegate for the '{@link #getTotalStudyPoints() <em>Total Study Points</em>}' attribute.
+	 * The default value of the '{@link #getTotalStudyPoints() <em>Total Study Points</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTotalStudyPoints()
 	 * @generated
 	 * @ordered
 	 */
-	protected EStructuralFeature.Internal.SettingDelegate TOTAL_STUDY_POINTS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)Course_descPackage.Literals.STUDENT__TOTAL_STUDY_POINTS).getSettingDelegate();
+	protected static final double TOTAL_STUDY_POINTS_EDEFAULT = 0.0;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -110,19 +110,24 @@ public class StudentImpl extends PersonRoleImpl implements Student {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public double getTotalStudyPoints() {
-		return (Double)TOTAL_STUDY_POINTS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTotalStudyPoints(double newTotalStudyPoints) {
-		TOTAL_STUDY_POINTS__ESETTING_DELEGATE.dynamicSet(this, null, 0, newTotalStudyPoints);
+		double totalPoints = 0;
+		for(Exam finExam: finishedExams) {
+			double maxRed = 0;
+			for( CoursePreconditions precond : finExam.getBelongsTo().getInstanceOfCourse().getHasPrecondition()) {
+				for(Exam exam : finishedExams ) {
+					if(exam.getBelongsTo().getInstanceOfCourse() == precond.getBelongsTo()) {
+						maxRed = Math.max(maxRed, precond.getReductionPoints());
+					}
+				}
+			}
+			totalPoints += finExam.getBelongsTo().getInstanceOfCourse().getCredits() - maxRed;
+		}
+		return totalPoints;
+		// TODO: implement this method to return the 'Total Study Points' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
 	}
 
 	/**
@@ -228,9 +233,6 @@ public class StudentImpl extends PersonRoleImpl implements Student {
 				getFinishedExams().clear();
 				getFinishedExams().addAll((Collection<? extends Exam>)newValue);
 				return;
-			case Course_descPackage.STUDENT__TOTAL_STUDY_POINTS:
-				setTotalStudyPoints((Double)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -249,9 +251,6 @@ public class StudentImpl extends PersonRoleImpl implements Student {
 			case Course_descPackage.STUDENT__FINISHED_EXAMS:
 				getFinishedExams().clear();
 				return;
-			case Course_descPackage.STUDENT__TOTAL_STUDY_POINTS:
-				TOTAL_STUDY_POINTS__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -269,7 +268,7 @@ public class StudentImpl extends PersonRoleImpl implements Student {
 			case Course_descPackage.STUDENT__FINISHED_EXAMS:
 				return finishedExams != null && !finishedExams.isEmpty();
 			case Course_descPackage.STUDENT__TOTAL_STUDY_POINTS:
-				return TOTAL_STUDY_POINTS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+				return getTotalStudyPoints() != TOTAL_STUDY_POINTS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

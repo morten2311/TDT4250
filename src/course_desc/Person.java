@@ -113,7 +113,7 @@ public interface Person extends EObject {
 	 * @see #setFullName(String)
 	 * @see course_desc.Course_descPackage#getPerson_FullName()
 	 * @model transient="true" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL derivation='self.name.concat(\' \').concat(self.lastName)'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL derivation='self.name.concat(\' \').concat(self.lastName)\r\n'"
 	 * @generated
 	 */
 	String getFullName();

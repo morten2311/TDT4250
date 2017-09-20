@@ -1137,9 +1137,9 @@ public class Course_descPackageImpl extends EPackageImpl implements Course_descP
 		initEReference(getTimetable_Programs(), this.getStudyProgram(), null, "programs", null, 0, -1, Timetable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(coursePreconditionsEClass, CoursePreconditions.class, "CoursePreconditions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCoursePreconditions_IsRequired(), ecorePackage.getEBoolean(), "isRequired", null, 0, 1, CoursePreconditions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCoursePreconditions_ReductionPoints(), ecorePackage.getEDouble(), "reductionPoints", null, 0, 1, CoursePreconditions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCoursePreconditions_IsRecommended(), ecorePackage.getEBoolean(), "isRecommended", null, 0, 1, CoursePreconditions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCoursePreconditions_IsRequired(), ecorePackage.getEBoolean(), "isRequired", "false", 0, 1, CoursePreconditions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCoursePreconditions_ReductionPoints(), ecorePackage.getEDouble(), "reductionPoints", "0", 0, 1, CoursePreconditions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCoursePreconditions_IsRecommended(), ecorePackage.getEBoolean(), "isRecommended", "false", 0, 1, CoursePreconditions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCoursePreconditions_BelongsTo(), this.getCourse(), null, "belongsTo", null, 1, 1, CoursePreconditions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(courseWorkEClass, CourseWork.class, "CourseWork", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1167,7 +1167,7 @@ public class Course_descPackageImpl extends EPackageImpl implements Course_descP
 		initEClass(studentEClass, Student.class, "Student", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStudent_HasExams(), this.getExam(), this.getExam_HasRegisteredStudents(), "hasExams", null, 0, -1, Student.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStudent_FinishedExams(), this.getExam(), null, "finishedExams", null, 0, -1, Student.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStudent_TotalStudyPoints(), ecorePackage.getEDouble(), "totalStudyPoints", "0", 1, 1, Student.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStudent_TotalStudyPoints(), ecorePackage.getEDouble(), "totalStudyPoints", "0", 1, 1, Student.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getStudent__SignUpForExam__Exam(), ecorePackage.getEBoolean(), "signUpForExam", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getExam(), "exam", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1278,13 +1278,7 @@ public class Course_descPackageImpl extends EPackageImpl implements Course_descP
 		  (getPerson_FullName(), 
 		   source, 
 		   new String[] {
-			 "derivation", "self.name.concat(\' \').concat(self.lastName)"
-		   });	
-		addAnnotation
-		  (getStudent_TotalStudyPoints(), 
-		   source, 
-		   new String[] {
-			 "derivation", "self.finishedExams -> size()*7.5"
+			 "derivation", "self.name.concat(\' \').concat(self.lastName)\r\n"
 		   });
 	}
 

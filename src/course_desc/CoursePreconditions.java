@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface CoursePreconditions extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Is Required</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Is Required</em>' attribute isn't clear,
@@ -35,7 +36,7 @@ public interface CoursePreconditions extends EObject {
 	 * @return the value of the '<em>Is Required</em>' attribute.
 	 * @see #setIsRequired(boolean)
 	 * @see course_desc.Course_descPackage#getCoursePreconditions_IsRequired()
-	 * @model
+	 * @model default="false"
 	 * @generated
 	 */
 	boolean isIsRequired();
@@ -52,6 +53,7 @@ public interface CoursePreconditions extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Reduction Points</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Reduction Points</em>' attribute isn't clear,
@@ -61,7 +63,7 @@ public interface CoursePreconditions extends EObject {
 	 * @return the value of the '<em>Reduction Points</em>' attribute.
 	 * @see #setReductionPoints(double)
 	 * @see course_desc.Course_descPackage#getCoursePreconditions_ReductionPoints()
-	 * @model
+	 * @model default="0"
 	 * @generated
 	 */
 	double getReductionPoints();
@@ -78,6 +80,7 @@ public interface CoursePreconditions extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Is Recommended</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Is Recommended</em>' attribute isn't clear,
@@ -87,7 +90,7 @@ public interface CoursePreconditions extends EObject {
 	 * @return the value of the '<em>Is Recommended</em>' attribute.
 	 * @see #setIsRecommended(boolean)
 	 * @see course_desc.Course_descPackage#getCoursePreconditions_IsRecommended()
-	 * @model
+	 * @model default="false"
 	 * @generated
 	 */
 	boolean isIsRecommended();

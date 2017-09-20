@@ -61,9 +61,12 @@
         eType="#//StudyProgram"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CoursePreconditions">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isRequired" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reductionPoints" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isRecommended" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isRequired" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reductionPoints" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isRecommended" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="belongsTo" lowerBound="1"
         eType="#//Course"/>
   </eClassifiers>
@@ -132,12 +135,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="finishedExams" upperBound="-1"
         eType="#//Exam"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalStudyPoints" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" volatile="true"
-        transient="true" defaultValueLiteral="0">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
-        <details key="derivation" value="self.finishedExams -> size()*7.5"/>
-      </eAnnotations>
-    </eStructuralFeatures>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" changeable="false"
+        volatile="true" transient="true" defaultValueLiteral="0" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Lecturer" eSuperTypes="#//PersonRole">
     <eStructuralFeatures xsi:type="ecore:EReference" name="belongsTo" eType="#//CourseInstance"/>

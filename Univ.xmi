@@ -126,7 +126,7 @@
       Content="blabla"
       Credits="7.5"
       hasInstance="//@hasDepartment.0/@responsible.0"
-      hasPrecondition="//@hasPrecond.5"/>
+      hasPrecondition="//@hasPrecond.6"/>
   <hasCourses
       Code="TDT4115"
       name="Informasjonsteknologi, grunnkurs"
@@ -172,7 +172,11 @@
   <hasPrecond
       reductionPoints="7.5"
       belongsTo="//@hasCourses.7"/>
+  <hasPrecond
+      isRequired="true"
+      reductionPoints="3.5"
+      belongsTo="//@hasCourses.1"/>
   <hasStudents
       linkedTo="//@hasPersons.4"
-      finishedExams="//@hasDepartment.0/@responsible.0/@hasEvaluations.0"/>
+      finishedExams="//@hasDepartment.0/@responsible.0/@hasEvaluations.0 //@hasDepartment.0/@responsible.1/@hasEvaluations.0"/>
 </course_desc:Univ>

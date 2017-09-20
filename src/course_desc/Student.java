@@ -67,23 +67,11 @@ public interface Student extends PersonRole {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Total Study Points</em>' attribute.
-	 * @see #setTotalStudyPoints(double)
 	 * @see course_desc.Course_descPackage#getStudent_TotalStudyPoints()
-	 * @model default="0" required="true" transient="true" volatile="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL derivation='self.finishedExams -&gt; size()*7.5'"
+	 * @model default="0" required="true" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	double getTotalStudyPoints();
-
-	/**
-	 * Sets the value of the '{@link course_desc.Student#getTotalStudyPoints <em>Total Study Points</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Total Study Points</em>' attribute.
-	 * @see #getTotalStudyPoints()
-	 * @generated
-	 */
-	void setTotalStudyPoints(double value);
 
 	/**
 	 * <!-- begin-user-doc -->
